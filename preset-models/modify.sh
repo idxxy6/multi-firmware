@@ -23,3 +23,5 @@ cp -f uci-scripts/* files/etc/uci-defaults
 sed -i '/DISTRIB_/d' package/default-settings/files/zzz-default-settings
 sed -i '/footer.htm/d' package/default-settings/files/zzz-default-settings
 sed -i '/admin_status/d' package/default-settings/files/zzz-default-settings
+
+patch -p1 < extra-files/v2ray-geodata.patch
