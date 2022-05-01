@@ -65,6 +65,7 @@ on:
 env:
   CLONE_SH: preset-models/clone.sh
   MODIFY_SH: preset-models/modify.sh
+  TEMP_CONFIG: preset-models/temp.config
   SELECT_PY: preset-models/select.py
   RELEASE_JSON: preset-models/release.json
   PHICOMM_MOD_PATCH: extra-files/phicomm_mod.patch
@@ -112,6 +113,7 @@ jobs:
           $MODIFY_SH
       - name: Make defconfig
         run: |
+          mv -f $TEMP_CONFIG ./.config
           sed -i 's/^[ \t]*//g' ./.config
           make defconfig
       - name: Make download
